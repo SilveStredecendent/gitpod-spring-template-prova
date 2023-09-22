@@ -20,7 +20,7 @@ public class PlataformaController {
 
     @RequestMapping("/list")
     public String list(Model model) {
-        model.addAttribute("plataforma", plataformaRepo.findAll());
+        model.addAttribute("plataformas", plataformaRepo.findAll());
         return "/plataforma/list";
     }
 
