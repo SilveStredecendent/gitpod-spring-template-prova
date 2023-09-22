@@ -72,7 +72,7 @@ public String update(
 
 @RequestMapping("/delete")
 public String delete(Model model, @RequestParam("id") int id) {
-    Optional<Plataforma> genero = plataformarepo.findById(id);
+    Optional<Plataforma> plataforma = plataformarepo.findById(id);
 
     if(plataforma.isPresent()) {
         model.addAttribute("plataforma", plataforma.get());
