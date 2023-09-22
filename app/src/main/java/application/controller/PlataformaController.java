@@ -39,7 +39,7 @@ public class PlataformaController {
         return "redirect:/plataforma/list";
     }
 
-}
+
 
 @RequestMapping("/update")
 public String update(Model model, @RequestParam("id") int id) {
@@ -87,4 +87,6 @@ public String delete(@RequestParam("id") int id) {
     plataformarepo.deleteById(id);
 
     return "redirect:/plataforma/list";
+}
+
 }
