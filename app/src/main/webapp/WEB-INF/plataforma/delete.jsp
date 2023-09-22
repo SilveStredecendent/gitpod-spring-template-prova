@@ -11,10 +11,10 @@
     <div class="container">
         <h1>Remover Plataforma</h1>
         <p>Tem certeza que deletar remover a Plataforma "${plataforma.nome}</p>
-        <form action="/Plataforma/delete" method="post">
-        <input type="hidden" name="id" value="${Plataforma.id}" />
+        <form action="/plataforma/delete" method="post">
+        <input type="hidden" name="id" value="${plataforma.id}" />
         <br />
-        <a href="/Plataforma/list" class="btn btn-primary">Voltar</a>
+        <a href="/plataforma/list" class="btn btn-primary">Voltar</a>
         <button type="submit" class="btn btn-success">Excluir</button>
     </form>
     </div>
