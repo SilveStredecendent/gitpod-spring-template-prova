@@ -16,11 +16,11 @@ import application.model.PlataformaRepository;
 @RequestMapping("/plataforma")
 public class PlataformaController {
     @Autowired
-    private PlataformaRepository plataformarepo;
+    private PlataformaRepository plataformaRepo;
 
     @RequestMapping("/list")
     public String list(Model model) {
-        model.addAttribute("plataforma", plataformarepo.findAll());
+        model.addAttribute("plataforma", plataformaRepo.findAll());
         return "/plataforma/list";
     }
 
@@ -34,7 +34,7 @@ public class PlataformaController {
         Plataforma plataforma = new Plataforma();
         plataforma.setNome(nome);
 
-        plataformarepo.save(plataforma);
+        plataformaRepo.save(plataforma);
 
         return "redirect:/plataforma/list";
     }
@@ -43,7 +43,7 @@ public class PlataformaController {
 
 @RequestMapping("/update")
 public String update(Model model, @RequestParam("id") int id) {
-    Optional<Plataforma> plataforma = plataformarepo.findById(id);
+    Optional<Plataforma> plataforma = plataformaRepo.findById(id);
 
     if(plataforma.isPresent()) {
         model.addAttribute("plataforma", plataforma.get());
@@ -58,12 +58,12 @@ public String update(
     @RequestParam("id") int id,
     @RequestParam("nome") String nome
 ) {
-    Optional<Plataforma> plataforma = plataformarepo.findById(id);
+    Optional<Plataforma> plataforma = plataformaRepo.findById(id);
 
     if(plataforma.isPresent()){
         plataforma.get().setNome(nome);
 
-        plataformarepo.save(plataforma.get());
+        plataformaRepo.save(plataforma.get());
     }
 
     return "redirect:/plataforma/list";
@@ -72,7 +72,7 @@ public String update(
 
 @RequestMapping("/delete")
 public String delete(Model model, @RequestParam("id") int id) {
-    Optional<Plataforma> plataforma = plataformarepo.findById(id);
+    Optional<Plataforma> plataforma = plataformaRepo.findById(id);
 
     if(plataforma.isPresent()) {
         model.addAttribute("plataforma", plataforma.get());
@@ -84,7 +84,7 @@ public String delete(Model model, @RequestParam("id") int id) {
 
 @RequestMapping(value = "/delete", method = RequestMethod.POST)
 public String delete(@RequestParam("id") int id) {
-    plataformarepo.deleteById(id);
+    plataformaRepo.deleteById(id);
 
     return "redirect:/plataforma/list";
 }
